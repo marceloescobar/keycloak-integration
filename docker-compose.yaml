@@ -7,3 +7,5 @@ services:
     environment:
       - KEYCLOAK_USER=admin
       - KEYCLOAK_PASSWORD=admin
+    volumes:
+      - ./keycloak-config/:/opt/keycloak/data/import/
