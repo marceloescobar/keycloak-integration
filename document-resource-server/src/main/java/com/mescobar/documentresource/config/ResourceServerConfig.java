@@ -10,20 +10,16 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationConverter;
 
-@Configuration
-@EnableWebSecurity
-@EnableGlobalMethodSecurity(jsr250Enabled = true)
 public class ResourceServerConfig extends WebSecurityConfigurerAdapter {
 
 	
 	@Override
 	   protected void configure(HttpSecurity http) throws Exception {
-	      http
-	         .authorizeRequests()
-	            .anyRequest().authenticated()
-	         .and()
-	            .oauth2ResourceServer()
-	              .jwt(jwt -> jwt.jwtAuthenticationConverter( jwtAuthenticationConverter()));
+			/*
+			 * http .authorizeRequests() .anyRequest().authenticated() .and()
+			 * .oauth2ResourceServer() .jwt(jwt -> jwt.jwtAuthenticationConverter(
+			 * jwtAuthenticationConverter()));
+			 */
 	   }
 
 	   private Converter<Jwt, ? extends AbstractAuthenticationToken> jwtAuthenticationConverter() {
