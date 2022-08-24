@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          my-keycloak-provider:
+            issuer-uri: http://localhost:8080/auth/realms/interno-realm
+        registration:
+          keycloak-spring-gateway-client:
+            provider: my-keycloak-provider
+            client-id: spring-gateway-client
+            client-secret: 5914bfef-131b-45c0-b451-fa8f0bc469b3
+            authorization-grant-type: authorization_code
+            redirect-uri: '{baseUrl}/login/oauth2/code/keycloak'
+server:
+  port: 9090
